@@ -2,7 +2,7 @@ import { neon } from '@neondatabase/serverless';
 // import {products,favorites} from '@/app/lib/placeholder-data';
 const sql = neon(`${process.env.DATABASE_URL}`);
 
-async function seedProducts(sql:any){
+async function seedProducts(){
     try{
       await sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
       await sql` CREATE TABLE IF NOT EXISTS products (
@@ -52,7 +52,7 @@ async function seedProducts(sql:any){
     }
 }
 
-async function seedFavorites(sql:any){
+async function seedFavorites(){
   try{
     await sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
     // await sql` 
@@ -116,8 +116,8 @@ export async function GET() {
     try {
       return Response.json({ message: 'Database seeded successfully' });
       // not deleting seed route so avoid seeding again by returning early
-      await seedProducts(sql);
-      await seedFavorites(sql);
+      await seedProducts();
+      await seedFavorites();
       // return Response.json({ message: 'Database seeded successfully' });
     } catch (error) {
       console.log('Seeding error:', error);
