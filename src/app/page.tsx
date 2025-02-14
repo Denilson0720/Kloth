@@ -1,8 +1,11 @@
 import { playfair } from "./ui/fonts";
 import Link from "next/link";
+import { Favorites } from "./ui/favorites";
+import { Suspense } from "react";
+import { PopularsSkeleton} from "./ui/skeletons";
 export default function Home() {
   return (
-    <div className="border-4 border-blue-400 ">
+    <div>
       <video
         className="absolute top-0 left-0 w-1/2 h-screen object-cover"
         autoPlay
@@ -32,7 +35,8 @@ export default function Home() {
           <span className="text-center border-4 border-white py-2 px-4 w-24 hover:bg-white hover:text-black transition-all duration-300"><Link href='/women'>Women</Link></span>
         </div>
       </div>
-      <div className="h-56 relative flex flex-row justify-center items-center px-12">
+
+      <div className="h-96 relative flex flex-row justify-center items-center px-12 mb-20">
         <div className="h-full w-3/12 flex items-center">
           <h1 className={`${playfair.className} antialiased text-5xl`}>The Pursuit of Simplicity.</h1>
         </div>
@@ -49,14 +53,18 @@ export default function Home() {
         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nam ipsa impedit laboriosam culpa faci.</p>
         </div>
       </div>
-      
+      {/* lifecycle */}
+      <div className="h-[80vh] bg-[url('https://res.cloudinary.com/duhazr5mo/image/upload/v1739383397/Kloth/combo_hero_y3hwpu.jpg')] bg-center bg-cover grid grid-cols-2 grid-rows-1 text-white">
+        <div className="col-span-1 row-span-1 flex justify-center items-center flex-col">
+        <p className={`${playfair.className} antialiased text-4xl pl-4`}>Get to know your garment's lifecycle</p>
+        <span className="text-center border-4 border-white py-2 px-4 mt-2  hover:bg-white hover:text-black transition-all duration-300"><Link href={'/lifecycle'}>Learn More</Link></span>
 
+        </div>
 
-
-      
-      {/* <div className="h-screen bg-[url('/mens_clothing_hero.jpg')] bg-center bg-cover"></div> */}
-
-       
+      </div>
+      <Suspense fallback={<PopularsSkeleton/>}>
+        <Favorites/>
+      </Suspense>
     </div>
     
   );
