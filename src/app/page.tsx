@@ -56,7 +56,7 @@ export default function Home() {
       {/* lifecycle */}
       <div className="h-[80vh] bg-[url('https://res.cloudinary.com/duhazr5mo/image/upload/v1739383397/Kloth/combo_hero_y3hwpu.jpg')] bg-center bg-cover grid grid-cols-2 grid-rows-1 text-white">
         <div className="col-span-1 row-span-1 flex justify-center items-center flex-col">
-        <p className={`${playfair.className} antialiased text-4xl pl-4`}>Get to know your garment's lifecycle</p>
+        <p className={`${playfair.className} antialiased text-4xl pl-4`}>Get to know your garment&apos;s lifecycle</p>
         <span className="text-center border-4 border-white py-2 px-4 mt-2  hover:bg-white hover:text-black transition-all duration-300"><Link href={'/lifecycle'}>Learn More</Link></span>
 
         </div>

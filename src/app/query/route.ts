@@ -21,6 +21,6 @@ export async function GET(){
     return Response.json(products);
 
   } catch (error) {
-    return Response.json({message:'Error retrievin query results.'},{status:500})
+    return Response.json({message:`Error retrievin query results: ${error}`},{status:500})
   }
 }

@@ -1,6 +1,6 @@
 import { neon } from '@neondatabase/serverless';
 // import {products,favorites} from '@/app/lib/placeholder-data';
-// const sql = neon(`${process.env.DATABASE_URL}`);
+const sql = neon(`${process.env.DATABASE_URL}`);
 
 async function seedProducts(sql:any){
     try{
@@ -114,9 +114,11 @@ async function seedFavorites(sql:any){
 }
 export async function GET() {
     try {
-      // await seedProducts(sql);
-      // await seedFavorites(sql);
       return Response.json({ message: 'Database seeded successfully' });
+      // not deleting seed route so avoid seeding again by returning early
+      await seedProducts(sql);
+      await seedFavorites(sql);
+      // return Response.json({ message: 'Database seeded successfully' });
     } catch (error) {
       console.log('Seeding error:', error);
       return Response.json({ error }, { status: 500 });
