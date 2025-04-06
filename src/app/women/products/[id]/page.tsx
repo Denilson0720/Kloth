@@ -5,7 +5,7 @@ import SizePicker from '@/app/ui/products/product-size-picker';
 
 export default async function page({params}:{params:{id:string}}){
     // const params = await props.params;
-    const {id}  = await params;
+    const {id}  = params;
     const product = await getProduct(id);
     const productVariants = await getProductVariantsByProductId(id);
     // console.log(productData);

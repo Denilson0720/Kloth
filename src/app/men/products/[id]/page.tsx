@@ -4,7 +4,7 @@ import { playfair} from "@/app/ui/fonts";
 import SizePicker from '@/app/ui/products/product-size-picker';
 
 export default async function Page({params}:{params:{id:string}}){
-    const {id}  = await params;
+    const {id}  = params;
     // DONT NEET TO NECESARALY MOVE THIS INTO API LAYER BECAUSE --> SERVER COMPONENT
     const product = await getProduct(id);
     
@@ -42,10 +42,6 @@ export default async function Page({params}:{params:{id:string}}){
                     <p>{product.description}</p>
 
                 </div>
-
-
-
-
             </div>
             </div>
 
