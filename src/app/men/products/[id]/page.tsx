@@ -7,7 +7,7 @@ type PageProps = {
   };
   
 
-export default async function page({params}:PageProps){
+export default async function Page({params}:PageProps){
     const {id}  =params;
     // DONT NEET TO NECESARALY MOVE THIS INTO API LAYER BECAUSE --> SERVER COMPONENT
     const product = await getProduct(id);
