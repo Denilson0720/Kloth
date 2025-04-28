@@ -2,12 +2,12 @@ import { getProduct,getProductVariantsByProductId } from "@/app/lib/data";
 import { notFound } from 'next/navigation';
 import { playfair} from "@/app/ui/fonts";
 import SizePicker from '@/app/ui/products/product-size-picker';
-type PageProps = {
+type ProductPageProps = {
     params: { id: string };
   };
   
 
-export default async function Page({params}:PageProps){
+export default async function Page({params}:ProductPageProps){
     const {id}  =params;
     // DONT NEET TO NECESARALY MOVE THIS INTO API LAYER BECAUSE --> SERVER COMPONENT
     const product = await getProduct(id);
