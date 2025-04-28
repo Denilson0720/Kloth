@@ -1,3 +1,5 @@
+// Force Next.js to treat this as dynamic, not static <--NextJS bug!!!
+export const dynamic = 'force-dynamic';
 import { getProduct,getProductVariantsByProductId } from "@/app/lib/data";
 import { notFound } from 'next/navigation';
 import { playfair} from "@/app/ui/fonts";
