@@ -2,7 +2,6 @@
 import { opensans} from '../ui/fonts';
 import {useState,useEffect} from 'react';
 import { LocalCart,ProductVariantWithProduct } from '../lib/definitions';
-import { TrashIcon } from '@heroicons/react/16/solid';
 
 export default function Page(){
     // [{variantId:'dedeeded',quantity:2},{},{}]

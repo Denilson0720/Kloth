@@ -2,10 +2,10 @@
 import React, { FormEvent } from "react"
 import { useState } from "react"
 
-type UserCred = {
-    emailOrUsername:string;
-    password:string;//hash??
-}
+// type UserCred = {
+//     emailOrUsername:string;
+//     password:string;//hash??
+// }
 export default function Login() {
     const [formData,setFormData] = useState<{email:string,password:string}>({email:'',password:''});
 
