@@ -1,4 +1,4 @@
-// import { NextRequest,NextResponse } from 'next/server';
+import { NextRequest,NextResponse } from 'next/server';
 // import jwt from 'jsonwebtoken';
 // import bcrypt from 'bcrypt';
 // import {neon} from '@neondatabase/serverless';
@@ -43,4 +43,7 @@
 //       return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
 //     }
 //   }
-  
+export async function POST(req: NextRequest) {
+  console.log('meow meow meow from login route handler via API layer')
+
+}
