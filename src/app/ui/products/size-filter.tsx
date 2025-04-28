@@ -35,11 +35,7 @@ export default function Filter(){
                 params.delete('size',s);
             }
         });
-
-        console.log('sizes state: ', updatedSizes)
-        console.log('pathname: ', pathname)
-        console.log('params: ', params.toString())
-
+        
         replace(`${pathname}?${params.toString()}`)   
     }
     // console.log(sizes)

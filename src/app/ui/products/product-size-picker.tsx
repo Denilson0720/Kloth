@@ -11,7 +11,7 @@ export default function Page({productVariants}:{productVariants:ProductVariant[]
     // Much easier to send to cart or display stock messages based on state
     const [selectedVariant,setVariant] = useState<ProductVariant|undefined>();
     // State to display low stock
-    const [selectSizeWarning,setWarning] = useState<boolean>(false);
+
     // succesfully added to cart state
     const [successfulCartAdd,setSuccess] = useState<ProductVariant>();
 
@@ -33,6 +33,7 @@ export default function Page({productVariants}:{productVariants:ProductVariant[]
 
         if(selectedVariant){
             setLoading(true);
+            // add cart to local storage
             addToCartLocal(selectedVariant?.variantid);
             setSuccess(selectedVariant);
             setLoading(false);
@@ -42,16 +43,12 @@ export default function Page({productVariants}:{productVariants:ProductVariant[]
     function selectVariant(p:ProductVariant){
         if(!selectedVariant){
             setVariant(p);
-            setWarning(false);
         }
         else if(selectedVariant==p){
             setVariant(undefined);
-            setWarning(false);
         }
-        // if variant is different value entirely set new value
         else{
             setVariant(p)
-            setWarning(false);
         }
     }
 
@@ -68,9 +65,9 @@ export default function Page({productVariants}:{productVariants:ProductVariant[]
 
 
     return(
-        <div className={`pl-5 ${selectSizeWarning?'border-red-500 border-2':''}`}>
+        <div className={`pl-5 `}>
             {/* {sizeButtons} */}
-            <p className={`${selectSizeWarning?'text-red-500 font-semibold':''} text-lg font-semibold my-4`}>Select a size:</p>
+            <p className={`text-lg font-semibold my-4`}>Select a size:</p>
             {/* SUCCESFULLY ADDED TO CART MESSAGE */}
             {successfulCartAdd &&
                 <p className=" font-semibold text-green-500">Succesfully added size {successfulCartAdd.size} to cart!</p>

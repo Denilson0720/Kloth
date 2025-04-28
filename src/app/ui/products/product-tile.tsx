@@ -28,6 +28,7 @@ export default function ProductTile(){
     try{
       // fetching through api layer using built query string
       const res = await fetch(`/api/products${queryString}`);
+      
       const data = await res.json();
       setProducts(data);
     }

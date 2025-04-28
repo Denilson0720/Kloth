@@ -5,7 +5,7 @@ import { Suspense } from "react";
 import { PopularsSkeleton} from "./ui/skeletons";
 export default function Home() {
   return (
-    <div>
+    <div className="">
       <video
         className="absolute top-0 left-0 w-1/2 h-screen object-cover"
         autoPlay

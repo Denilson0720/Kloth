@@ -2,6 +2,7 @@
 import { opensans} from '../ui/fonts';
 import {useState,useEffect} from 'react';
 import { LocalCart,ProductVariantWithProduct } from '../lib/definitions';
+import { TrashIcon } from '@heroicons/react/16/solid';
 
 export default function Page(){
     // [{variantId:'dedeeded',quantity:2},{},{}]
@@ -50,7 +51,9 @@ export default function Page(){
         if (cart.length === 0) return;
         // FETCH USING API LAYER
         const ids = cart.map((item) => item.variantId).join(",");
+
         const res = await fetch(`/api/cart-items?variantIds=${ids}`);
+        
         const data = await res.json();
         setItems(data);
       };
@@ -107,7 +110,7 @@ export default function Page(){
                 }
             )}
             </div>
-            <div className='w-[30%] flex flex-col items-center h-[70vh]'>
+            <div className='w-[30%] flex flex-col items-center h-[70vh] border-2'>
                 {/* <div></div> */}
                 {/* <h1 className='mt-10 border-2 w-full pl-5 bg-slate-400 py-4 font-semibold text-lg'>Summary</h1> */}
                 <div className='w-full rounded-md overflow-hidden border-black grid grid-cols-2 gap-y-5 bg-slate-200 font-semibold'>
@@ -117,7 +120,14 @@ export default function Page(){
                     <span className='col-1 pl-2'>Estimated Tax</span><span className='col-2 text-center'>{(subtotal *0.1).toFixed(2)}</span>
                     <span className='col-1 text-xl pl-2 pb-2'>Total</span><span className='col-2 text-center'>${(subtotal +50 +subtotal*0.1).toFixed(2)}</span>
                 </div>
+                {/* <div className='pt-0'>
+                    <div className="group relative m-12 flex justify-center">
+                        <TrashIcon className='text-black size-8'/>
+                        <span className="border-2 absolute top-10 scale-0 rounded bg-gray-800 p-2 w-20 text-xs text-white text-center group-hover:scale-100">Delete Cart</span>
+                    </div>
 
+
+                </div> */}
 
             </div>
 

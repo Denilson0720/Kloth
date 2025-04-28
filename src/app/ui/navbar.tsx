@@ -1,7 +1,8 @@
 'use client'
 import { playfair } from "./fonts";
 import Link from "next/link";
-import { ShoppingCartIcon} from "@heroicons/react/16/solid";
+import { ShoppingCartIcon,UserIcon,MagnifyingGlassIcon} from "@heroicons/react/16/solid";
+
 import clsx from 'clsx';
 import { usePathname } from "next/navigation";
 import { useEffect,useState } from "react";
@@ -9,9 +10,9 @@ import { useEffect,useState } from "react";
 const links = [
     {name:'Home',href:'/'},
     {name:'Men',href:'/men'},
-    {name:'Women',href:'/women'}
-    // {name:'Life Cycle',href:'/lifecycle'},
-    // {name:'About',href:'/about'}
+    {name:'Women',href:'/women'},
+    {name:'Life Cycle',href:'/lifecycle'},
+    {name:'About',href:'/about'}
 ]
 export default function NavBar(){
     const pathname = usePathname();
@@ -34,16 +35,16 @@ export default function NavBar(){
         // <div className="border-2 border-teal-400 bg-[url('/mens_clothing_hero.jpg')] bg-center bg-cover h-screen">
 
         <div 
-        className={`h-20 ${playfair.className} antialiased text-black flex sticky top-0 left-0 w-full justify-between items-center pl-12 pr-12 bg-transparent z-50 transition-all duration-300 hover:bg-white hover:shadow-md hover:bg-opactiy-100 ${isScrolled ?'bg-white bg-opacity-90 shadow-md h-16':'bg-transparent'}`}
+        className={`h-20 ${playfair.className} antialiased text-black flex sticky top-0 left-0 w-full justify-between items-center pl-12 pr-12 bg-transparent z-50 transition-all duration-300 hover:bg-white hover:shadow-md hover:bg-opactiy-100 ${isScrolled ?'bg-white bg-opacity-100 shadow-md h-16':'bg-transparent'}`}
         >
-            <div className="text-2xl font-bold">
+            <div className="text-2xl font-bold w-2/12">
                 <Link href = {"/"}>
                     KLOTH
 
                 </Link>
 
             </div>
-            <div className="flex w-4/12 justify-between">
+            <div className="flex w-8/12 justify-between">
                  {links.map((link)=>(
                     <Link href={link.href} key={link.name} className={clsx(
                         'text-l font-bold hover:underline hover:text-black hover:font-extrabold',
@@ -55,13 +56,19 @@ export default function NavBar(){
                  )
                  )}
             </div>
-            <div className="flex w-20 justify-around items-center">
-                <Link href = {"/cart"}>
-
-                    <ShoppingCartIcon className="size-5 text-black"/>
+            <div className="flex w-2/12 justify-end items-center">
+                <Link href = {"/login"}>
+                    <UserIcon className="size-5 text-black"/>
                 </Link>
 
-                {/* <MagnifyingGlassIcon className="size-5 text-black"/> */}
+                <Link href = {"/cart"}>
+
+                    <ShoppingCartIcon className="size-5 text-black ml-5"/>
+                </Link>
+
+                <MagnifyingGlassIcon className="size-5 text-black ml-5"/> 
+
+
             </div>
 
         </div>
