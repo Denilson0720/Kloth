@@ -44,6 +44,9 @@ import { NextRequest,NextResponse } from 'next/server';
 //     }
 //   }
 export async function POST(req: NextRequest) {
-  console.log('meow meow meow from login route handler via API layer')
+  // console.log('meow meow meow from login route handler via API layer')
+  console.log('message from dummy route login handler: ', req)
+  return NextResponse.json({ message: 'Login successful' });
+
 
 }
